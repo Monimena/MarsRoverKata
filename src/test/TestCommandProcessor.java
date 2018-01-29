@@ -1,12 +1,12 @@
-package test.java;
+package test;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import main.java.Commandment;
-import main.java.Movement;
-import main.java.Rotation;
-import main.java.Rover;
+import main.Commandment;
+import main.Movement;
+import main.Rotation;
+import main.Rover;
 
 public class TestCommandProcessor {
 	
@@ -72,5 +72,17 @@ public class TestCommandProcessor {
 		// check it hasn't sent any command
 		Mockito.verify(testRover, Mockito.times(0)).rotate(Mockito.any());
 		Mockito.verify(testRover, Mockito.times(0)).move(Mockito.any());
+	}
+	
+	@Test
+	void testObstacleDetected() {
+		Rover testRover = Mockito.mock(Rover.class);
+		Commandment testCommand = new Commandment(testRover);
+		
+		Mockito.when(testRover.move(Mockito.any())).thenReturn(true);
+		
+		testCommand.processCommand("fff");
+		
+		Mockito.verify(testRover, Mockito.times(1)).move(Movement.forward);
 	}
 }

@@ -1,12 +1,12 @@
-package test.java;
+package test;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import main.java.Coordinates;
-import main.java.Direction;
-import main.java.Rotation;
-import main.java.Rover;
+import main.Coordinates;
+import main.Direction;
+import main.Rotation;
+import main.Rover;
 
 public class TestRoverRotation {
 

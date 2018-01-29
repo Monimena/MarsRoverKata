@@ -1,5 +1,9 @@
-package main.java;
+package main;
 
+/**
+ * The commandment class is the one in charge of receiving commands, processing them and sending them to the rover.
+ * In this case, each commandment commands one rover.
+ */
 public class Commandment {
 	
 	private Rover rover;
@@ -9,14 +13,17 @@ public class Commandment {
 	}
 
 	public void processCommand(String command) {
+		boolean obstacle =  false;
+		int i = 0;
 		if (command != null && !command.isEmpty()) {
-			for(char c : command.toCharArray()) {
+			do {
+				char c = command.toCharArray()[i];
 				switch(c) {
 				case 'f':
-					rover.move(Movement.forward);
+					obstacle = rover.move(Movement.forward);
 					break;
 				case 'b':
-					rover.move(Movement.backward);
+					obstacle = rover.move(Movement.backward);
 					break;
 				case 'l':
 					rover.rotate(Rotation.left);
@@ -27,7 +34,12 @@ public class Commandment {
 				default:
 					System.out.println("Non-recognized command: " + c);
 				}
-			}
+				
+				i++;
+			} while (obstacle == false && i < command.toCharArray().length);
+			
+			System.out.println("Rover current position: " + rover.getCoordinatesString());
+			
 		} else {
 			System.out.println("No command received");
 		}

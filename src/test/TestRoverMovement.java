@@ -1,17 +1,19 @@
-package test.java;
-
-import org.junit.jupiter.api.Test;
+package test;
 
 import org.junit.Assert;
-import main.java.Coordinates;
-import main.java.Direction;
-import main.java.Movement;
-import main.java.Rover;
+import org.junit.jupiter.api.Test;
+
+import main.Coordinates;
+import main.Direction;
+import main.Mars;
+import main.Movement;
+import main.Rover;
 
 class TestRoverMovement {
 
 	@Test
 	void testAdvanceE() {
+		Mars.setEdgeX(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.E);
 		
 		testRover.move(Movement.forward);
@@ -22,6 +24,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testMoveBackE() {
+		Mars.setEdgeX(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.E);
 		
 		testRover.move(Movement.backward);
@@ -32,6 +35,7 @@ class TestRoverMovement {
 
 	@Test
 	void testAdvanceW() {
+		Mars.setEdgeX(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.W);
 		
 		testRover.move(Movement.forward);
@@ -42,6 +46,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testMoveBackW() {
+		Mars.setEdgeX(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.W);
 		
 		testRover.move(Movement.backward);
@@ -52,6 +57,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testAdvanceN() {
+		Mars.setEdgeY(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.N);
 		
 		testRover.move(Movement.forward);
@@ -62,6 +68,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testMoveBackN() {
+		Mars.setEdgeY(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.N);
 		
 		testRover.move(Movement.backward);
@@ -72,6 +79,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testAdvanceS() {
+		Mars.setEdgeY(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.S);
 		
 		testRover.move(Movement.forward);
@@ -82,6 +90,7 @@ class TestRoverMovement {
 	
 	@Test
 	void testMoveBackS() {
+		Mars.setEdgeY(25);
 		Rover testRover = new Rover(new Coordinates(1,1), Direction.S);
 		
 		testRover.move(Movement.backward);
